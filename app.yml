@@ -1,0 +1,23 @@
+url: http://10.71.83.55:4581
+user: applink
+passwd: applink
+dial: "*62874#"
+# 'global' phone number, overriden per session
+phoneNumber: 2348184123954
+sessions:
+  - id: 12345678910
+    phoneNumber: 2348184123954
+    description: "Should return a balance of 500 for Zikani"
+    steps:
+      # The first step is the response after dialing the ussd code
+      - expect: "What is your name?"
+      - text: "Zikani"
+        expect: |
+          Welcome, Zikani
+          Choose an item:
+          1. Account detail
+          2. Balance
+          3. Something else
+          # Exit
+      - text: "2"
+        expect: "Your balance is: MK 500"

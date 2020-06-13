@@ -1,0 +1,11 @@
+# This is a TOML document.
+
+title = "USSD config"
+
+[config]
+network = "tcp"
+address = "10.71.83.55"
+ports = [ 4580, 4581 ]
+connection_max  = 9000
+
+
